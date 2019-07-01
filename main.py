@@ -86,10 +86,11 @@ def contact():
                            body = message + "\n" + phone
                          )
     return render_template('contact.html' , params = params)
-@app.route("/post/<string:post_slug>",methods = ['GET'])
-def Posts_sample(post_slug):
-    post= post.query.filter_by(slug = post_slug.first)
-    return render_template('posts.html' , params = params , post = post)    
+#@app.route("/sample post/<string:post_slug>", methods = ['GET'])
+@app.route("/sample post/<string:post_slug>", methods = ['GET'])
+def posts_sample(post_slug):
+    post= Posts.query.filter_by(slug = post_slug).first()
+    return render_template('posts.html' , params = params , post = post )    
 
 app.run(debug=True)    
   
