@@ -55,12 +55,17 @@ class Posts(db.Model):
     tagline = db.Column(db.String(12) , nullable=True)
 
 
+@app.route("/dash") 
+def dashboard():
+    return render_template('dashboard.html', params = params)
+
+
 
 
 
 @app.route("/")
 def Home():
-    posts = Posts.query.filter_by().all()
+    posts = Posts.query.filter_by().all()[0:params['no_of_posts']]
 
     return render_template('index.html', params = params , posts = posts)
 @app.route("/about") 

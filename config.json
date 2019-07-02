@@ -11,8 +11,10 @@
         "gw_url" : "https://github.com",
         "gmail-user" :"ajayupadhyayweb@gmail.com",
         "gmail-pass" : "7007158027",
-        "title": "My Blog",
-        "no_of_posts": "5"
+        "title": "R.G.S.C  News",
+        "no_of_posts": 3 ,
+        "about_subtitle" : "A Blog for R.G.S.C students ",
+        "about" : "Hi am a M.C.A student from B.H.U"
 
 
 
