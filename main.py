@@ -52,7 +52,7 @@ class Posts(db.Model):
 
     content= db.Column(db.String(120), primary_key=False)
     date = db.Column(db.String(12) , nullable=True)
-   
+    tagline = db.Column(db.String(12) , nullable=True)
 
 
 
@@ -60,7 +60,9 @@ class Posts(db.Model):
 
 @app.route("/")
 def Home():
-    return render_template('index.html', params = params)
+    posts = Posts.query.filter_by().all()
+
+    return render_template('index.html', params = params , posts = posts)
 @app.route("/about") 
 def about():
     return render_template('about.html', params = params)
@@ -87,7 +89,7 @@ def contact():
                          )
     return render_template('contact.html' , params = params)
 #@app.route("/sample post/<string:post_slug>", methods = ['GET'])
-@app.route("/sample post/<string:post_slug>", methods = ['GET'])
+@app.route("/sample_post/<string:post_slug>", methods = ['GET'])
 def posts_sample(post_slug):
     post= Posts.query.filter_by(slug = post_slug).first()
     return render_template('posts.html' , params = params , post = post )    
